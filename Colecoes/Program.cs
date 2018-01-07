@@ -10,86 +10,55 @@ namespace Colecoes
     {
         static void Main(string[] args)
         {
-            //string a = "a 1";
-            //string b = "b";
-            //string c = "c";
-            //string d = "d";
-            //string e = "gg";
-            //string aa = "a 2";
 
-            //var lista = new List<string>() { a, b, c, d, e, aa };
+            ////ISET E HEADSET
+            //ISet<string> alunos = new HashSet<string>();
+            //alunos.Add("Vanessa Tonini");
+            //alunos.Add("Ana Losnak");
+            //alunos.Add("Rafael Nercessian");
+            //alunos.Add("Priscila Stuani");
+            //alunos.Add("Rafael Rollo");
+            //alunos.Add("Fabio Gushiken");
 
+            ////remover ana, adicionando marcelo
+            //alunos.Remove("Ana Losnak");
+            //alunos.Add("Marcelo Oliveira");
 
-            ////Imprimir(lista);
+            //Console.WriteLine(string.Join(",", alunos));
 
-            //Console.WriteLine("Primeiro elemento: " + lista[0]);
-            //Console.WriteLine("Primeiro elemento: " + lista.First());
+            ////ordenando: sort
+            ////alunos.Sort();
+            ////copiando: alunosEmLista
+            //List<string> alunosEmLista = new List<string>(alunos);
+            ////ordenando cópia
+            //alunosEmLista.Sort();
+            ////imprimindo cópia
+            //Console.WriteLine(string.Join(",", alunosEmLista));
 
-            //Console.WriteLine("Ultimo elemento: " + lista[2]);
-            //Console.WriteLine("Ultimo elemento: " + lista.Last());
+            Curso curso = new Curso("C#", "Paulo");
+            curso.Adiciona(new Aula("Introdução", 50));
+            curso.Adiciona(new Aula("Listas", 35));
+            curso.Adiciona(new Aula("Iset", 40));
 
-            ////BUSCAS
-            //Console.WriteLine("O primeiro item 'A' é:" + lista.FirstOrDefault(item => item.Contains("a")));
+            Aluno a1 = new Aluno("Vanessa Tonini", 34672);
+            Aluno a2 = new Aluno("Ana Losnak", 5617);
+            Aluno a3 = new Aluno("Rafael Nercessian", 17645);
 
-            //Console.WriteLine("O último item 'A' é:" + lista.LastOrDefault(item => item.Contains("a")));
+            curso.Matricula(a1);
+            curso.Matricula(a2);
+            curso.Matricula(a3);
 
-            //Console.WriteLine("O primeiro item 'G' é:" + lista.FirstOrDefault(item => item.Contains("g")));
+            foreach (var item in curso.Alunos)
+            {
+                Console.WriteLine(item);
+            }
 
-            ////Console.WriteLine("O primeiro item 'G' é:" + lista.First(item => item.Contains("H")));
-
-            ////REVERSÃO DOS ITENS DA LISTA
-            //lista.Reverse();
-            //Imprimir(lista);
-
-            ////VOLTANDO AO ESTADO ORIGINAL
-            //lista.Reverse();
-
-            ////REMOVENDO O ULTIMO ELEMENTO DA LISTA
-            //lista.RemoveAt(lista.Count - 1);
-            //Imprimir(lista);
-
-            ////ADICIONANDO ELEMENTOS NA LISTA
-            //lista.Add("h");
-
-            ////ORDENAÇÃO ALFABÉTICA
-            //lista.Sort();
-
-            ////COPIA
-            ////indice de onde a cópia irá iniciar / quantidade de elementos a serem copiados
-            //var copia = lista.GetRange(lista.Count - 2, 2);
-
-            ////CLONE
-            ////para clonar é passada uma lista no construtor
-            //var clone = new List<string>(lista);
-
-            ////REMOVENDO FAIXA ESPECIFICA DE ITENS
-            //clone.RemoveRange(clone.Count - 2, 1);
-            //Imprimir(clone);
-
-            //LISTA DE OBJETOS
-
-            //var aula1 = new Aula("Introdução", 20);
-            //var aula2 = new Aula("Modelando", 30);
-            //var aula3 = new Aula("Inciando Trabalhando", 15);
-
-            //var aulas = new List<Aula>() { aula1, aula2, aula3 };
-            //Imprimir(aulas);
-
-            ////UTILIZANDO METODO DE ORDENAÇÃO REESCRITO NA CLASSE AULA
-            //aulas.Sort();
-            //Imprimir(aulas);
-
-            //aulas.Sort((aulaA, aulaB) => aulaA.Tempo.CompareTo(aulaB.Tempo));
-            //Imprimir(aulas);
-            Curso csharpColecoes = new Curso("C# Collections", "Paulo Sampaio");
-            csharpColecoes.Adiciona(new Aula("Trabalhando com Listas", 20));
-            csharpColecoes.Adiciona(new Aula("Git", 90));
-            Imprimir(csharpColecoes.Aulas);//LISTA SOMENTE LEITURA
-
-            Console.WriteLine(csharpColecoes.TempoTotal);
-            Console.WriteLine(csharpColecoes.ToString()); 
+            Console.WriteLine(curso.Alunos.Contains(new Aluno("Vanessa Tonini", 34672)));
 
         }
+
+
+
 
         public static void Imprimir(IList<Aula> aulas)
         {
@@ -99,8 +68,6 @@ namespace Colecoes
             {
                 Console.WriteLine(aula);
             }
-                
-            
         }
         
         public static void Imprimir(List<Aula> aulas)

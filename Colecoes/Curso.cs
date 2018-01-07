@@ -12,6 +12,15 @@ namespace Colecoes
         private IList<Aula> aulas;
         private string nome;
         private string instrutor;
+        private ISet<Aluno> alunos = new HashSet<Aluno>();
+        public IList<Aluno> Alunos
+        {
+            get
+            {
+                return new ReadOnlyCollection<Aluno>(alunos.ToList());
+            }
+        }
+
 
         public Curso(string nome, string instrutor)
         {
@@ -62,6 +71,14 @@ namespace Colecoes
             return $"Curso: {nome}, Tempo total: {TempoTotal}, Aulas: {string.Join(",", aulas)}";
         }
 
-
+        public void Matricula(Aluno aluno)
+        {
+            this.alunos.Add(aluno);
+        }
+        public bool EstaMatriculado(Aluno aluno)
+        {
+            return alunos.Contains(aluno);
+        }
+        
     }
 }
