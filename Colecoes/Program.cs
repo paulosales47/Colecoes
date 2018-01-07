@@ -62,10 +62,10 @@ namespace Colecoes
 
         private static void Imprimir(string[] aulas)
         {
-            //foreach (var aula in aulas)
-            //{
-            //  Console.WriteLine(aula);
-            //}
+            foreach (var aula in aulas)
+            {
+                Console.WriteLine(aula);
+            }
 
             for (int i = 0; i < aulas.Length; i++)
             {
