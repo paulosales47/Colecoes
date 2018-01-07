@@ -14,13 +14,39 @@ namespace Colecoes
             string b = "b";
             string c = "c";
 
-            string[] array = new string[]
-            {
-                a,b,c
-            };
+            var lista = new List<string>() { a, b, c };
+
+
+            //Imprimir(lista);
+
+            Console.WriteLine("Primeiro elemento: "+ lista[0]);
+            Console.WriteLine("Primeiro elemento: " + lista.First());
+
+            Console.WriteLine("Ultimo elemento: " + lista[2]);
+            Console.WriteLine("Ultimo elemento: " + lista.Last());
 
 
 
         }
+
+        public static void Imprimir(List<string> lista)
+        {
+            //for (int i = 0; i < lista.Count; i++)
+            //{
+            //    Console.WriteLine(lista[i]);
+            //}
+
+            //foreach(var item in lista)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            lista.ForEach(item =>
+            {
+                Console.WriteLine(item);
+            });
+
+        }
+
     }
 }
