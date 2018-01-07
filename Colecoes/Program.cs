@@ -16,10 +16,11 @@ namespace Colecoes
             string d = "d";
             string e = "e";
             string f = "f";
+            string aa = "a";
 
             string[] letras = new string[]
             {
-                a, b, c, e, d, f
+                a, b, c, e, d, f, aa
             };
 
             Imprimir(letras);
