@@ -10,6 +10,15 @@ namespace Colecoes
     {
         static void Main(string[] args)
         {
+            string a = "a";
+            string b = "b";
+            string c = "c";
+
+            string[] array = new string[]
+            {
+                a,b,c
+            };
+
         }
     }
 }
