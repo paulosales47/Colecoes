@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace Colecoes
 {
-    class Curso
+    public class Curso
     {
+        private IDictionary<int, Aluno> dicionarioAlunos = new Dictionary<int, Aluno>();
         private IList<Aula> aulas;
         private string nome;
         private string instrutor;
         private ISet<Aluno> alunos = new HashSet<Aluno>();
+
         public IList<Aluno> Alunos
         {
             get
@@ -62,6 +64,7 @@ namespace Colecoes
                 //    total += item.Tempo;
                 //}
                 //return total;
+
                 return aulas.Sum(aula => aula.Tempo);
              }
         }
@@ -74,11 +77,27 @@ namespace Colecoes
         public void Matricula(Aluno aluno)
         {
             this.alunos.Add(aluno);
+            this.dicionarioAlunos.Add(aluno.NumeroMatricula, aluno);
         }
+
+        internal Aluno buscaMatriculado(int numeroMatricula)
+        {
+            Aluno aluno = null;
+            this.dicionarioAlunos.TryGetValue(numeroMatricula, out aluno);
+
+            return aluno;
+        }
+
+        internal void substituiAluno(Aluno sub)
+        {
+            this.dicionarioAlunos[sub.NumeroMatricula] = sub;
+        }
+
         public bool EstaMatriculado(Aluno aluno)
         {
             return alunos.Contains(aluno);
         }
+        
         
     }
 }

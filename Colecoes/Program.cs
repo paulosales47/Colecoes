@@ -55,6 +55,23 @@ namespace Colecoes
 
             Console.WriteLine(curso.Alunos.Contains(new Aluno("Vanessa Tonini", 34672)));
 
+            Console.Clear();
+
+            
+            Console.WriteLine($"Aluno 5617: {curso.buscaMatriculado(5617)}");
+            
+            Console.WriteLine($"Aluno 5618: {curso.buscaMatriculado(5618)}");
+
+            //Aluno sub = new Aluno("Paulo Henrique", 5617);
+            //curso.substituiAluno(sub);
+
+            // ATENÇÃO - Alterar os valores de atributo do objeto altera os valores dos itens dentro do dicionário
+            a2.Nome = "teste";
+
+            Console.WriteLine($"Aluno 5617: {curso.buscaMatriculado(5617)}");
+
+
+
         }
 
 
